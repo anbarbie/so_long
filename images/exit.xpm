@@ -1,7 +1,7 @@
 /* XPM */
 static char * C:\Users\silio\Coding\42Projects\OngoingProjects\so_long\images\exit_xpm[] = {
 "32 32 14 1",
-" 	c None",
+" 	c #FFFFFF",
 ".	c #000000",
 "+	c #19710F",
 "@	c #27AB18",
