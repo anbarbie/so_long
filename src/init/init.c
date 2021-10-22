@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 02:47:52 by user42            #+#    #+#             */
-/*   Updated: 2021/10/21 18:41:07 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/22 03:29:39 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_struct(t_data *data)
 {
-	data->size_xpm = 70;
+	data->size_xpm = 32;
 	data->i = 0;
 	data->x = 0;
 	data->map = NULL;
@@ -36,13 +36,16 @@ void	xpm_to_image(t_data *data, t_img **img, char *path)
 		(printf("mlx_xpm_file_to_image failed\n"));
 	(*img)->width = width;
 	(*img)->height = height;
-	printf("width %d\n", width);
-	printf("height %d\n", height);
 }
 
 void	init_xpm(t_data *data)
 {
-	xpm_to_image(data, &data->wall, "./images/ground.xpm");	
+	xpm_to_image(data, &data->wall, "./images/wall.xpm");
+	xpm_to_image(data, &data->player, "./images/mario.xpm");
+	xpm_to_image(data, &data->exit, "./images/exit.xpm");
+	xpm_to_image(data, &data->ground, "./images/ground.xpm");
+	xpm_to_image(data, &data->sprite, "./images/shroom.xpm");
+	xpm_to_image(data, &data->sprite2, "./images/shrooom.xpm");
 }
 
 int init(t_data *data)
