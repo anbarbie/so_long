@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 21:02:59 by user42            #+#    #+#              #
-#    Updated: 2021/10/23 03:37:38 by user42           ###   ########.fr        #
+#    Updated: 2021/10/23 05:27:18 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,9 @@ libs:
 clean : 
 	@$(RM) $(OBJ_DIR)
 	@$(MAKE) -C $(LIBS) clean
+	@$(MAKE) -C $(MYLIB) clean
 
 fclean : clean
 	@$(RM) so_long
+	@$(MAKE) -C $(MYLIB) fclean
 re : fclean all
