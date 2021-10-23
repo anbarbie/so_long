@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 21:02:59 by user42            #+#    #+#              #
-#    Updated: 2021/10/23 05:27:18 by user42           ###   ########.fr        #
+#    Updated: 2021/10/23 22:01:56 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,11 @@ MYLIB = libft
 
 SRC = $(INIT) $(KEYHANDLER) $(RENDER) $(GNL) $(PARSING) $(EXIT)
 
-INIT = init.c
-KEYHANDLER = handle_keypress.c
+INIT = init.c init_struct.c
+KEYHANDLER = handle_keypress.c play_moves.c
 RENDER = img_pix_put.c render.c render_etc.c
 GNL = get_next_line.c get_next_line_utils.c
 PARSING = check_parsing.c parsing.c
-MOVES = 
 EXIT = exit.c free_map.c
 
 INIT := $(INIT:%.c=init/%.c)
@@ -37,7 +36,6 @@ KEYHANDLER := $(KEYHANDLER:%.c=keyhandler/%.c)
 RENDER := $(RENDER:%.c=render/%.c)
 GNL := $(GNL:%.c=get_next_line/%.c)
 PARSING := $(PARSING:%.c=parsing/%.c)
-MOVES := $(MOVES:%.c=moves/%.c)
 EXIT := $(EXIT:%.c=exit/%.c)
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 

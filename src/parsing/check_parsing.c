@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 04:03:19 by user42            #+#    #+#             */
-/*   Updated: 2021/10/23 05:02:14 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/24 00:44:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,17 @@ void	check_map_content(t_data *data, int	e, int p, int c)
 			if (check_content(data->map[i][j]))
 				exit_message(data, "Map : Wrong characters");
 			if (data->map[i][j] == 'E')
+			{
 				e++;
+				data->cpt_exit++;
+			}
 			if (data->map[i][j] == 'P')
 				p++;
 			if (data->map[i][j] == 'C')
+			{
 				c++;
+				data->cpt_sprite++;
+			}
 			j++;
 		}
 		i++;		
@@ -72,4 +78,5 @@ void	check_map(t_data *data)
 
 	check_map_is_rec(data);
 	check_map_content(data, e, p, c);
+	//read_map(data);
 }

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 19:46:46 by user42            #+#    #+#             */
-/*   Updated: 2021/10/23 03:38:31 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/23 22:02:57 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	exit_message(t_data *data, char *s)
 {
-	free_map(data);
+	free_map(data->map);
 	printf("Error : %s\n", s);
 	exit(1);
 }

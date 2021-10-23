@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 02:20:15 by user42            #+#    #+#             */
-/*   Updated: 2021/10/23 03:23:20 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/23 22:53:29 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,25 @@
 
 int main(int ac, char **av)
 {
-    t_data data;
-    
+	t_data	data;
+
 	if (ac != 2)
 		exit_message(&data, "Wrong number of arg");
-    if (init(&data) == 1)
-		return (1);
-
+	init_struct(&data);
 	read_ber(&data, av[1]);
-	printf("%s\n", data.map[0]);
-	printf("%s\n", data.map[1]);
-	printf("%s\n", data.map[2]);
-    mlx_loop_hook(data.mlx_ptr, &render, &data);
+	init_struct_parsing(&data);
+	init(&data);
+	mlx_loop_hook(data.mlx_ptr, &render, &data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);
 	mlx_loop(data.mlx_ptr);
 	
-	mlx_destroy_image(data.mlx_ptr, data.img);
 	mlx_destroy_image(data.mlx_ptr, data.wall);
+	mlx_destroy_image(data.mlx_ptr, data.player);
+	mlx_destroy_image(data.mlx_ptr, data.exit);
+	mlx_destroy_image(data.mlx_ptr, data.ground);
+	mlx_destroy_image(data.mlx_ptr, data.sprite);
+	mlx_destroy_image(data.mlx_ptr, data.sprite2);
+	mlx_destroy_image(data.mlx_ptr, data.img);
 	mlx_destroy_display(data.mlx_ptr);
 	free(data.mlx_ptr);
 	return (0);
