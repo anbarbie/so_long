@@ -6,38 +6,48 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 21:02:59 by user42            #+#    #+#              #
-#    Updated: 2021/10/21 18:40:06 by user42           ###   ########.fr        #
+#    Updated: 2021/10/23 03:37:38 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 CC = clang
 FLAGS = -Wall -Werror -Wextra
-MLX_FLAGS = -L./minilibx_linux -lmlx_Linux -L/usr/bin -lX11 -lXext -lm -lz
+MLX_FLAGS = -L./minilibx_linux -lmlx_Linux -L/usr/bin -lX11 -lXext -lm -lz 
 MLX_INC = -Iminilibx_linux
 SRC_DIR = src
 OBJ_DIR = obj
-INC_DIR = -Iinclude -Iimages
+INC_DIR = -Iinclude -Ilibft
 RM = rm -rf
 LIBS = minilibx_linux
+MYLIB = libft
 
-SRC = $(INIT) $(KEYHANDLER) $(RENDER)
+SRC = $(INIT) $(KEYHANDLER) $(RENDER) $(GNL) $(PARSING) $(EXIT)
 
 INIT = init.c
 KEYHANDLER = handle_keypress.c
 RENDER = img_pix_put.c render.c render_etc.c
+GNL = get_next_line.c get_next_line_utils.c
+PARSING = check_parsing.c parsing.c
+MOVES = 
+EXIT = exit.c free_map.c
 
 INIT := $(INIT:%.c=init/%.c)
 KEYHANDLER := $(KEYHANDLER:%.c=keyhandler/%.c)
 RENDER := $(RENDER:%.c=render/%.c)
+GNL := $(GNL:%.c=get_next_line/%.c)
+PARSING := $(PARSING:%.c=parsing/%.c)
+MOVES := $(MOVES:%.c=moves/%.c)
+EXIT := $(EXIT:%.c=exit/%.c)
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 all : $(NAME)
 
 $(NAME): libs $(OBJ) $(INCLUDE:%.h=$(INC_DIR)/%.h)
 	@echo "Compiling $(NAME)..."
-	@$(CC) $(MLX_INC) $(INC_DIR) $(FLAGS) -o so_long src/so_long.c $(OBJ) $(MLX_FLAGS)
-
+	@$(CC) $(MLX_INC) $(INC_DIR) $(FLAGS) -o so_long src/so_long.c $(OBJ) -L$(MYLIB) -lft -lncurses $(MLX_FLAGS)
+	@echo "Compilation success!"
+	
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
 	@mkdir -p $(@D)
@@ -46,6 +56,8 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 libs:
 	@echo "Making libs..."
 	@$(MAKE) -C $(LIBS)
+	@$(MAKE) -C $(MYLIB)
+
 clean : 
 	@$(RM) $(OBJ_DIR)
 	@$(MAKE) -C $(LIBS) clean

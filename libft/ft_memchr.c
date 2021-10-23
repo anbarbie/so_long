@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 20:55:43 by user42            #+#    #+#             */
-/*   Updated: 2021/10/23 05:19:48 by user42           ###   ########.fr       */
+/*   Created: 2019/11/06 19:56:37 by antbarbi          #+#    #+#             */
+/*   Updated: 2019/11/07 20:15:20 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include "libft.h"
 
-int	render(t_data *data)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (data->win_ptr == NULL)
-		return (1);
-	render_map(data);
-	render_items(data);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img, 0, 0);
-	return (0);
+	const unsigned char	*d;
+	unsigned char		ch;
+
+	d = s;
+	ch = (unsigned char)c;
+	while (n--)
+	{
+		if (*d == ch)
+			return ((void *)d);
+		d++;
+	}
+	return (NULL);
 }

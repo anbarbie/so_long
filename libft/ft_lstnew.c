@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 20:55:43 by user42            #+#    #+#             */
-/*   Updated: 2021/10/23 05:19:48 by user42           ###   ########.fr       */
+/*   Created: 2019/11/13 20:19:11 by antbarbi          #+#    #+#             */
+/*   Updated: 2021/10/08 18:56:27 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include "libft.h"
 
-int	render(t_data *data)
+t_list	*ft_lstnew(void *content)
 {
-	if (data->win_ptr == NULL)
-		return (1);
-	render_map(data);
-	render_items(data);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img, 0, 0);
-	return (0);
+	t_list	*elem;
+
+	elem = (t_list *)malloc(sizeof(t_list));
+	if (!(elem))
+		return (NULL);
+	elem->content = content;
+	elem->next = NULL;
+	return (elem);
 }

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 21:40:22 by user42            #+#    #+#             */
-/*   Updated: 2021/10/22 03:56:53 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/23 05:18:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,46 +15,43 @@
 void	render_map(t_data *data)
 {
 	int	i;
-	int j;
-	int	x;
-	int	y;
-
+	int	j;
+	
 	i = 0;
-	x = 0;
-	while ((i + x) < data->height)
+	while (data->map[i])
 	{
 		j = 0;
-		y = 0;
-		while ((j + y) < data->width)
+		while (data->map[i][j])
 		{
-			if ((j == 0) || (j == 14) ||
-			(i == 0) || (i == 9))
+			if (data->map[i][j] == '1')
 				xpm_pix_put(data->wall, data, j, i);
 			else
 				xpm_pix_put(data->ground, data, j, i);
 			j++;
-			y += data->size_xpm;
 		}
-		x += data->size_xpm;
 		i++;
-	}	
+	}
 }
 
 void	render_items(t_data *data)
 {
-	static int i = 0;
-
-	xpm_pix_put(data->player, data, 4, 4);
+	int	i;
+	int	j;
 	
-	if (i == 0)
+	i = 0;
+	while (data->map[i])
 	{
-		xpm_pix_put(data->sprite, data, 6, 6);
-		i = 1;
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] == 'E')
+				xpm_pix_put(data->exit, data, j, i);
+			if (data->map[i][j] == 'P')
+				xpm_pix_put(data->player, data, j, i);
+			if (data->map[i][j] == 'C')
+				xpm_pix_put(data->sprite, data, j, i);
+			j++;
+		}
+		i++;
 	}
-	else
-	{
-		xpm_pix_put(data->sprite2, data, 6, 6);
-		i = 0;
-	}
-	xpm_pix_put(data->exit, data, 8, 8);
 }

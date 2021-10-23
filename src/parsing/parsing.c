@@ -6,11 +6,39 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 04:04:23 by user42            #+#    #+#             */
-/*   Updated: 2021/10/22 04:18:18 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/23 04:23:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long>
+#include <so_long.h>
+
+int	realloc_map(t_data *data, char *s)
+{
+	int		i;
+	char	**new_map;
+
+	i = 0;
+	new_map = malloc(sizeof(char **) * (data->x + 2));
+	if (!new_map)
+		exit_message(data, "malloc map");
+	while (i < data->x)
+	{
+		new_map[i] = data->map[i];
+		i++;
+	}
+	new_map[i] = s;
+	new_map[i + 1] = NULL;
+	if (data->map)
+		free(data->map);
+	data->map = new_map;
+	return (0);
+}
+
+void	parsing_map(t_data *data, char *str)
+{
+	realloc_map(data, str);
+	data->x++;
+}
 
 void	parsing(t_data *data, char *s)
 {
@@ -18,11 +46,11 @@ void	parsing(t_data *data, char *s)
 		parsing_map(data, s);
 	else if (!s[data->i])
 	{
-		free_str(s);
-		exit_error(data, "Empty line in .ber");
+		free(s);
+		exit_message(data, "Empty line in .ber");
 	}
 	else
-		printf("Wrong .ber elem");
+		exit_message(data, "Wrong .ber elem");
 }
 
 void	read_ber(t_data *data, char *path_ber)
@@ -35,17 +63,17 @@ void	read_ber(t_data *data, char *path_ber)
 	line_read = NULL;
 	fd = open(path_ber, O_RDONLY);
 	if (fd == -1)
-		return (1);
+		return ;
 	while (gnl != 0)
 	{
 		gnl = get_next_line(fd, &line_read);
 		if (gnl == -1)
-			return (1);
+			exit_message(data, "gnl failed");
 		data->i = 0;
 		if (gnl > 0)
 			parsing(data, line_read);
 		if (gnl == 0)
-			free_str(line_read);
+			free(line_read);
 	}
 	check_map(data);
 }

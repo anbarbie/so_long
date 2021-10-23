@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 20:55:43 by user42            #+#    #+#             */
-/*   Updated: 2021/10/23 05:19:48 by user42           ###   ########.fr       */
+/*   Created: 2019/11/07 23:02:57 by antbarbi          #+#    #+#             */
+/*   Updated: 2021/10/08 18:58:52 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include "libft.h"
 
-int	render(t_data *data)
+char	*ft_strdup(const char *s)
 {
-	if (data->win_ptr == NULL)
-		return (1);
-	render_map(data);
-	render_items(data);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img, 0, 0);
-	return (0);
+	char	*ptr;
+	size_t	i;
+
+	i = 0;
+	ptr = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!(ptr))
+		return (NULL);
+	while (s[i])
+	{
+		ptr[i] = s[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }
