@@ -64,6 +64,7 @@ void	init_struct_parsing(t_data *data);
 void	xpm_to_image(t_data *data, t_img **img, char *path);
 
 //Parsing
+void	check_format(t_data *data, char *path_ber);
 void	read_ber(t_data *data, char *path_ber);
 void	parsing(t_data *data, char *s);
 void	check_map_is_rec(t_data *data);

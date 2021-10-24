@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 04:03:19 by user42            #+#    #+#             */
-/*   Updated: 2021/10/24 04:45:30 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/24 06:09:04 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ void	check_map_is_closed(t_data *data)
 		j = 0;
 		while (j < data->x_map)
 		{
-			if ((i == 0) || (j == 0) ||
-			(i == data->y_map - 1) || (j == data->x_map - 1))
+			if (((i == 0) && (data->map[i][j] != '1')) || ((i == data->y_map - 1) &&
+				(data->map[i][j] != '1')) || ((j == 0) && (data->map[i][j] != '1')) ||
+				((i == data->x_map - 1) && (data->map[i][j] != '1')))
 				exit_message(data, "Map is not closed");
 			j++;
 		}

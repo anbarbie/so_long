@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 17:22:31 by user42            #+#    #+#             */
-/*   Updated: 2021/10/24 05:15:12 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/24 05:34:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	init_struct(t_data *data)
 	data->exit = NULL;
 	data->ground = NULL;
 	data->sprite = NULL;
+	data->sprite2 = NULL;
 	data->mlx_ptr = NULL;
 	data->win_ptr = NULL;
 }

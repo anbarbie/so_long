@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 04:04:23 by user42            #+#    #+#             */
-/*   Updated: 2021/10/23 23:25:00 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/24 05:43:04 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	parsing(t_data *data, char *s)
 		parsing_map(data, s);
 	else if (!s[data->i])
 	{
-		free(s);
+		free_line(s);
 		exit_message(data, "Empty line in .ber");
 	}
 	else
