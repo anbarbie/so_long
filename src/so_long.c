@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 02:20:15 by user42            #+#    #+#             */
-/*   Updated: 2021/10/23 22:53:29 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/24 05:10:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int main(int ac, char **av)
 	init(&data);
 	mlx_loop_hook(data.mlx_ptr, &render, &data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);
+	mlx_hook(data.win_ptr, ClientMessage, StructureNotifyMask, exit_cross, &data);
 	mlx_loop(data.mlx_ptr);
-	
 	mlx_destroy_image(data.mlx_ptr, data.wall);
 	mlx_destroy_image(data.mlx_ptr, data.player);
 	mlx_destroy_image(data.mlx_ptr, data.exit);

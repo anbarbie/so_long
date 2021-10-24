@@ -88,9 +88,14 @@ void	play_down(t_data *data);
 void	play_up(t_data *data);
 void	play_left(t_data *data);
 void	play_right(t_data *data);	
+int		check_sprite(t_data *data);
+void	check_exit(t_data *data);
+int		is_it_solved(t_data *data);
 
 //Exit
+void	exit_success(t_data *data);
 void	exit_message(t_data *data, char *s);
+int		exit_cross(t_data *data);
 void	free_map(char **s);
 void	free_line(char *s);
 

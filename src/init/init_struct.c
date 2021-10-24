@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 17:22:31 by user42            #+#    #+#             */
-/*   Updated: 2021/10/24 00:45:11 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/24 05:15:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	init_struct(t_data *data)
 	data->x = 0;
 	data->cpt_exit = 0;
 	data->cpt_sprite = 0;
+	data->cpt_moves = 0;
 	data->x_player = 0;
 	data->y_player = 0;
 	data->size_xpm = 32;

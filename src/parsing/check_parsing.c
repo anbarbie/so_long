@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 04:03:19 by user42            #+#    #+#             */
-/*   Updated: 2021/10/24 00:44:38 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/24 04:45:30 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,26 @@ void	check_map_is_rec(t_data *data)
 		b = ft_strlen(data->map[i]);
 		if (a != b)
 			exit_message(data, "Map is not rectangle");
+		i++;
+	}
+}
+
+void	check_map_is_closed(t_data *data)
+{
+	int	i;
+	int	j;
+	
+	i = 0;
+	while (i < data->y_map)
+	{
+		j = 0;
+		while (j < data->x_map)
+		{
+			if ((i == 0) || (j == 0) ||
+			(i == data->y_map - 1) || (j == data->x_map - 1))
+				exit_message(data, "Map is not closed");
+			j++;
+		}
 		i++;
 	}
 }
@@ -77,6 +97,6 @@ void	check_map(t_data *data)
 	static int	c = 0;
 
 	check_map_is_rec(data);
+	check_map_is_closed(data);
 	check_map_content(data, e, p, c);
-	//read_map(data);
 }
