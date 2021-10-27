@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 04:03:19 by user42            #+#    #+#             */
-/*   Updated: 2021/10/24 06:09:04 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/27 03:07:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,19 @@ void	check_map_is_closed(t_data *data)
 	int	j;
 	
 	i = 0;
-	while (i < data->y_map)
+	while (data->map[i])
 	{
 		j = 0;
-		while (j < data->x_map)
+		while (data->map[i][j])
 		{
-			if (((i == 0) && (data->map[i][j] != '1')) || ((i == data->y_map - 1) &&
-				(data->map[i][j] != '1')) || ((j == 0) && (data->map[i][j] != '1')) ||
-				((i == data->x_map - 1) && (data->map[i][j] != '1')))
-				exit_message(data, "Map is not closed");
+			if (i == 0 && data->map[i][j] != '1')
+				exit_message(data, "Up Map is not closed");
+			if (i == data->x - 1 && data->map[i][j] != '1')
+				exit_message(data, "Down Map is not closed");
+			if (j == 0 && data->map[i][j] != '1')
+				exit_message(data, "Left Map is not closed");
+			if (j == data->x_map - 1 && data->map[i][j] != '1')
+				exit_message(data, "Right Map is not closed");
 			j++;
 		}
 		i++;
