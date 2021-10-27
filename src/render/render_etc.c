@@ -6,31 +6,11 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 21:40:22 by user42            #+#    #+#             */
-/*   Updated: 2021/10/24 00:13:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/27 15:26:59 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
-
-void	print_map(t_data *data)
-{
-	int	i;
-	int	j;
-	
-	i = 0;
-	while (i < data->y_map)
-	{
-		j = 0;
-		while (j < data->x_map)
-		{
-			printf("%c", data->map[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;	
-	}
-	printf("\n");
-}
 
 void	render_map(t_data *data)
 {

@@ -53,8 +53,6 @@ typedef struct s_data
 	t_img	*sprite;
 }			t_data;
 
-void	print_map(t_data *data);
-
 //Init
 int 	init(t_data *data);
 void	init_struct(t_data *data);
