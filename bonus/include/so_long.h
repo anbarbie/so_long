@@ -65,6 +65,14 @@ typedef struct s_data
 	t_img	*nine;
 }			t_data;
 
+typedef struct s_gump
+{
+	int		x_gump1;
+	int		y_gump1;
+	int		x_gump2;
+	int		y_gump2;
+}	t_gump;
+
 //Init
 int 	init(t_data *data);
 void	init_struct(t_data *data);
@@ -87,6 +95,7 @@ void	render_map(t_data *data);
 void	render_items(t_data *data);
 void	render_moves(t_data *data);
 void	render_numbers(t_data *data, int nb, int x, int y);
+void	render_gump(t_data *data);
 void	img_pix_put(t_img *img, int x, int y, int color);
 void	xpm_pix_put(t_img *img, t_data *data, int x, int y);
 int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
