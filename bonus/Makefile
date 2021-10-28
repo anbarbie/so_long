@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 21:02:59 by user42            #+#    #+#              #
-#    Updated: 2021/10/28 03:51:39 by user42           ###   ########.fr        #
+#    Updated: 2021/10/28 04:08:41 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ MYLIB = libft
 SRC = $(INIT) $(KEYHANDLER) $(RENDER) $(GNL) $(PARSING) $(EXIT)
 
 INIT = init.c init_struct.c
-KEYHANDLER = handle_keypress.c play_moves.c exit_enabled.c
-RENDER = img_pix_put.c render.c render_etc.c
+KEYHANDLER = handle_keypress.c play_moves.c 
+RENDER = img_pix_put.c render.c render_etc.c exit_enabled.c render_moves.c
 GNL = get_next_line.c get_next_line_utils.c
 PARSING = check_parsing.c parsing.c check_file.c
 EXIT = exit.c free_map.c

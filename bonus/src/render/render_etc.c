@@ -6,11 +6,41 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 21:40:22 by user42            #+#    #+#             */
-/*   Updated: 2021/10/27 17:41:14 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/28 04:12:52 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
+
+int	is_nearby(int i, int j, int x, int y)
+{
+	if ((i == x - 1) && (j == y - 1))
+		return (1);
+	else if ((i == x) && (j == y - 1))
+		return (1);
+	else if ((i == x + 1) && (j == y - 1))
+		return (1);
+	else if ((i == x - 1) && (j == y))
+		return (1);
+	else if ((i == x + 1) && (j == y))
+		return (1);
+	else if ((i == x - 1) && (j == y + 1))
+		return (1);
+	else if ((i == x) && (j == y + 1))
+		return (1);
+	else if ((i == x + 1) && (j == y + 1))
+		return (1);
+	else
+		return (0);
+}
+
+void	render_coll(t_data *data, int x, int y)
+{
+	if (is_nearby(data->x_player, data->y_player, x, y))
+		xpm_pix_put(data->sprite, data, x, y);
+	else
+		xpm_pix_put(data->sprite2, data, x, y);
+}
 
 void	render_map(t_data *data)
 {
@@ -59,7 +89,7 @@ void	render_items(t_data *data)
 				xpm_pix_put(data->player, data, j, i);
 			}
 			else if (data->map[i][j] == 'C')
-				xpm_pix_put(data->sprite, data, j, i);
+				render_coll(data, j, i);
 			else if (data->map[i][j] == 'Z')
 			{
 				xpm_pix_put(data->sprite, data, j, i);
