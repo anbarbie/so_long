@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 17:22:31 by user42            #+#    #+#             */
-/*   Updated: 2021/10/28 04:20:20 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/29 03:17:52 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ void	init_struct_bonus(t_data *data)
 	data->seven = 0;
 	data->eight = 0;
 	data->nine = 0;
+	data->pos->x_gump = malloc(sizeof(int) * data->cpt_gump);
+	if (!(data->pos->x_gump))
+		exit_message(data, "malloc x_gump fail");
+	data->pos->y_gump = malloc(sizeof(int) * data->cpt_gump);
+	if (!(data->pos->y_gump))
+		exit_message(data, "malloc y_gump fail");
+	data->pos->b = malloc(sizeof(int) * data->cpt_gump);
+	if (!(data->pos->b))
+		exit_message(data, "malloc b fail");
 }
 
 void	init_struct(t_data *data)
@@ -36,7 +45,11 @@ void	init_struct(t_data *data)
 	data->cpt_exit = 0;
 	data->cpt_sprite = 0;
 	data->cpt_moves = 0;
+	data->cpt_gump = 0;
 	data->map = NULL;
+	data->pos = (struct s_pos*)malloc(sizeof(struct s_pos));
+	if (data->pos == NULL)
+		exit_message(data, "malloc struct failed");
 }
 
 void	init_struct_parsing(t_data *data)

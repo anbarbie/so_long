@@ -28,6 +28,13 @@
 #include <X11/keysym.h>
 #include <stdio.h>
 
+typedef struct s_pos
+{
+	int		*b;
+	int		*x_gump;
+	int		*y_gump;
+}			t_pos;
+
 typedef struct s_data
 {
 	int		i;
@@ -45,6 +52,7 @@ typedef struct s_data
 	int		cpt_moves;
 	int		cpt_sprite;
 	int		cpt_exit;
+	int		cpt_gump;
 	t_img	*img;
 	t_img	*wall;
 	t_img	*player;
@@ -63,15 +71,8 @@ typedef struct s_data
 	t_img	*seven;
 	t_img	*eight;
 	t_img	*nine;
+	t_pos	*pos;
 }			t_data;
-
-typedef struct s_gump
-{
-	int		x_gump1;
-	int		y_gump1;
-	int		x_gump2;
-	int		y_gump2;
-}	t_gump;
 
 //Init
 int 	init(t_data *data);
@@ -111,6 +112,8 @@ void	play_right(t_data *data);
 int		check_sprite(t_data *data);
 void	check_exit(t_data *data);
 int		is_it_solved(t_data *data);
+void	gump_patrol(t_data *data);
+void	get_gump_pos(t_data *data, int x, int y);
 
 //Exit
 void	exit_success(t_data *data);
@@ -118,5 +121,6 @@ void	exit_message(t_data *data, char *s);
 int		exit_cross(t_data *data);
 void	free_map(char **s);
 void	free_line(char *s);
+void	free_tab(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 21:40:22 by user42            #+#    #+#             */
-/*   Updated: 2021/10/28 04:12:52 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/29 02:31:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,13 @@ void	render_items(t_data *data)
 			}
 			else if (data->map[i][j] == 'C')
 				render_coll(data, j, i);
-			else if (data->map[i][j] == 'Z')
+			else if (data->map[i][j] == 'G')
 			{
-				xpm_pix_put(data->sprite, data, j, i);
-				xpm_pix_put(data->player, data, j, i);
+				get_gump_pos(data, j, i);
+				xpm_pix_put(data->ennemy, data, j, i);
 			}
+			else if (data->map[i][j] == 'Z')
+				xpm_pix_put(data->player, data, j, i);
 			j++;
 		}
 		i++;

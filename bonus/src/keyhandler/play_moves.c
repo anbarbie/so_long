@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 21:23:42 by user42            #+#    #+#             */
-/*   Updated: 2021/10/27 15:53:19 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/28 20:39:29 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	play_left(t_data *data)
 			else
 				data->map[data->y_player][data->x_player] = 'P';
 			data->cpt_moves++;
+			gump_patrol(data);
 		}
 	}
 }
@@ -48,6 +49,7 @@ void	play_right(t_data *data)
 			else
 				data->map[data->y_player][data->x_player] = 'P';
 			data->cpt_moves++;
+			gump_patrol(data);
 		}
 	}
 }
@@ -68,6 +70,7 @@ void	play_up(t_data *data)
 			else
 				data->map[data->y_player][data->x_player] = 'P';
 			data->cpt_moves++;
+			gump_patrol(data);
 		}
 	}
 }
@@ -88,6 +91,7 @@ void	play_down(t_data *data)
 			else
 				data->map[data->y_player][data->x_player] = 'P';
 			data->cpt_moves++;
+			gump_patrol(data);
 		}
 	}
 }
