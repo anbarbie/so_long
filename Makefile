@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 21:02:59 by user42            #+#    #+#              #
-#    Updated: 2021/10/24 05:58:44 by user42           ###   ########.fr        #
+#    Updated: 2021/10/29 04:12:49 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,12 +56,24 @@ libs:
 	@$(MAKE) -C $(LIBS)
 	@$(MAKE) -C $(MYLIB)
 
+bonus:
+	@$(MAKE) -C bonus
+	cp ./bonus/so_long .
+
 clean : 
 	@$(RM) $(OBJ_DIR)
 	@$(MAKE) -C $(LIBS) clean
 	@$(MAKE) -C $(MYLIB) clean
+	@$(MAKE) -C bonus clean
 
 fclean : clean
 	@$(RM) so_long
 	@$(MAKE) -C $(MYLIB) fclean
+	@$(MAKE) -C bonus fclean
+
 re : fclean all
+
+debug: CFLAGS += -g
+debug: fclean bonus
+
+.PHONY: all clean fclean libs re bonus debug

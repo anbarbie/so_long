@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 21:02:59 by user42            #+#    #+#              #
-#    Updated: 2021/10/28 17:30:34 by user42           ###   ########.fr        #
+#    Updated: 2021/10/29 04:08:49 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,3 +65,8 @@ fclean : clean
 	@$(RM) so_long
 	@$(MAKE) -C $(MYLIB) fclean
 re : fclean all
+
+debug: CFLAGS += -g
+debug: fclean bonus
+
+.PHONY: all clean fclean re bonus debug
