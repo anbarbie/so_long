@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_etc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 21:40:22 by user42            #+#    #+#             */
-/*   Updated: 2021/10/29 02:31:46 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/29 13:46:35 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	render_map(t_data *data)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i < data->y_map)
 	{
@@ -69,11 +69,18 @@ void	render_map(t_data *data)
 	}
 }
 
+void	get_player_pos(t_data *data, int x, int y)
+{
+	data->x_player = x;
+	data->y_player = y;
+	xpm_pix_put(data->player, data, x, y);
+}
+
 void	render_items(t_data *data)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i < data->y_map)
 	{
@@ -83,18 +90,11 @@ void	render_items(t_data *data)
 			if (data->map[i][j] == 'E')
 				xpm_pix_put(data->exit, data, j, i);
 			else if (data->map[i][j] == 'P')
-			{
-				data->x_player = j;
-				data->y_player = i;
-				xpm_pix_put(data->player, data, j, i);
-			}
+				get_player_pos(data, j, i);
 			else if (data->map[i][j] == 'C')
 				render_coll(data, j, i);
 			else if (data->map[i][j] == 'G')
-			{
 				get_gump_pos(data, j, i);
-				xpm_pix_put(data->ennemy, data, j, i);
-			}
 			else if (data->map[i][j] == 'Z')
 				xpm_pix_put(data->player, data, j, i);
 			j++;

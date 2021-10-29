@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 04:03:19 by user42            #+#    #+#             */
-/*   Updated: 2021/10/27 03:07:07 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/29 12:49:51 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	check_map_is_closed(t_data *data)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (data->map[i])
 	{
@@ -61,11 +61,10 @@ int	check_content(char s)
 	return (0);
 }
 
-void	check_map_content(t_data *data, int	e, int p, int c)
+void	check_map_content(t_data *data, int p)
 {
 	int	i;
-	int j;
-	
+	int	j;
 
 	i = 0;
 	while (data->map[i])
@@ -76,32 +75,24 @@ void	check_map_content(t_data *data, int	e, int p, int c)
 			if (check_content(data->map[i][j]))
 				exit_message(data, "Map : Wrong characters");
 			if (data->map[i][j] == 'E')
-			{
-				e++;
 				data->cpt_exit++;
-			}
 			if (data->map[i][j] == 'P')
 				p++;
 			if (data->map[i][j] == 'C')
-			{
-				c++;
 				data->cpt_sprite++;
-			}
 			j++;
 		}
-		i++;		
+		i++;
 	}
-	if (e == 0 || p != 1 || c == 0)
+	if (data->exit == 0 || p != 1 || data->cpt_sprite == 0)
 		exit_message(data, "Map : Content not solvable");
 }
 
 void	check_map(t_data *data)
 {
-	static int	e = 0;
 	static int	p = 0;
-	static int	c = 0;
 
 	check_map_is_rec(data);
 	check_map_is_closed(data);
-	check_map_content(data, e, p, c);
+	check_map_content(data, p);
 }

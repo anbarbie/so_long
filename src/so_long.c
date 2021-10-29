@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 02:20:15 by user42            #+#    #+#             */
-/*   Updated: 2021/10/27 03:20:41 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/29 11:38:24 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	so_long_hooks(t_data *data)
 	init_struct_parsing(data);
 	mlx_loop_hook(data->mlx_ptr, render, data);
 	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, handle_keypress, data);
-	mlx_hook(data->win_ptr, ClientMessage, StructureNotifyMask, exit_cross, data);
+	mlx_hook(data->win_ptr, ClientMessage,
+		StructureNotifyMask, exit_cross, data);
 	mlx_loop(data->mlx_ptr);
 	mlx_destroy_image(data->mlx_ptr, data->img);
 	mlx_destroy_image(data->mlx_ptr, data->wall);
@@ -30,7 +31,7 @@ void	so_long_hooks(t_data *data)
 	free_map(data->map);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_data	data;
 

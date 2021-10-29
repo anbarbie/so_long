@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 02:47:52 by user42            #+#    #+#             */
-/*   Updated: 2021/10/27 03:10:45 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/29 12:53:11 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,18 @@ void	init_xpm(t_data *data)
 	xpm_to_image(data, &data->sprite, "./images/shroom.xpm");
 }
 
-int init(t_data *data)
+int	init(t_data *data)
 {
-    data->mlx_ptr = mlx_init();
+	data->mlx_ptr = mlx_init();
 	if (data->mlx_ptr == NULL)
 		exit_message(data, "mlx_init failed");
-	data->win_ptr = mlx_new_window(data->mlx_ptr, data->width, data->height, "so_long");
+	data->win_ptr = mlx_new_window(data->mlx_ptr, data->width,
+			data->height, "so_long");
 	if (data->win_ptr == NULL)
 		exit_message(data, "mlx_new_window failed");
 	data->img = mlx_new_image(data->mlx_ptr, data->width, data->height);
 	if (!data->img)
 		exit_message(data, "mlx_new_image failed");
 	init_xpm(data);
-    return (0);
+	return (0);
 }

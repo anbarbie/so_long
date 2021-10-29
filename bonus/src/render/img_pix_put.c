@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   img_pix_put.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 20:53:16 by user42            #+#    #+#             */
-/*   Updated: 2021/10/23 23:31:03 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/29 13:41:40 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	get_color_from_texture(t_img *img, int x, int y)
 {
-	return(*(int *)(img->data + (y * img->size_line + x * (img->bpp / 8))));
+	return (*(int *)(img->data + (y * img->size_line + x * (img->bpp / 8))));
 }
 
 int	encode_rgb(uint8_t red, uint8_t green, uint8_t blue)
@@ -25,7 +25,7 @@ int	encode_rgb(uint8_t red, uint8_t green, uint8_t blue)
 void	img_pix_put(t_img *img, int x, int y, int color)
 {
 	char	*pixel;
-	
+
 	pixel = img->data + (y * img->size_line + x * (img->bpp / 8));
 	*(int *)pixel = color;
 }

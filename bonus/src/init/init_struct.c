@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 17:22:31 by user42            #+#    #+#             */
-/*   Updated: 2021/10/29 03:17:52 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/29 14:14:28 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,15 @@ void	init_struct(t_data *data)
 	data->cpt_moves = 0;
 	data->cpt_gump = 0;
 	data->map = NULL;
-	data->pos = (struct s_pos*)malloc(sizeof(struct s_pos));
+	data->pos = malloc(sizeof(struct s_pos));
 	if (data->pos == NULL)
 		exit_message(data, "malloc struct failed");
 }
 
 void	init_struct_parsing(t_data *data)
 {
+	static int	i = 0;
+
 	data->size_xpm = 32;
 	data->y_map = data->x;
 	data->x_map = ft_strlen(data->map[0]);
@@ -66,5 +68,10 @@ void	init_struct_parsing(t_data *data)
 	data->ground = 0;
 	data->sprite = 0;
 	init_struct_bonus(data);
+	while (i < data->cpt_gump)
+	{
+		data->pos->b[i] = 0;
+		i++;
+	}
 	init(data);
 }

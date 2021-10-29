@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit_enabled.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 00:40:30 by user42            #+#    #+#             */
-/*   Updated: 2021/10/24 04:20:28 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/29 12:50:41 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	check_sprite(t_data *data)
 	int	i;
 	int	j;
 	int	cpt;
-	
+
 	i = 0;
 	cpt = 0;
 	while (i < data->y_map)
@@ -38,7 +38,7 @@ int	is_it_solved(t_data *data)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i < data->y_map)
 	{
