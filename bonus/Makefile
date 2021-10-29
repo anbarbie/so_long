@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/20 21:02:59 by user42            #+#    #+#              #
-#    Updated: 2021/10/29 04:08:49 by user42           ###   ########.fr        #
+#    Updated: 2021/10/29 04:25:41 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,5 +68,7 @@ re : fclean all
 
 debug: CFLAGS += -g
 debug: fclean bonus
+sanitize: CFLAGS += -fsanitize=address
+sanitize: debug
 
-.PHONY: all clean fclean re bonus debug
+.PHONY: all $(NAME) clean fclean re bonus debug
