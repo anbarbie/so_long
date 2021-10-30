@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:02:51 by antbarbi          #+#    #+#             */
-/*   Updated: 2021/10/29 13:19:47 by antbarbi         ###   ########.fr       */
+/*   Updated: 2021/10/30 03:25:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static int	readbuff(int fd, char *buff, char **stock)
 	char	*tmp;
 	int		rd;
 
-	while ((rd = read(fd, buff, BUFFER_SIZE)))
+	rd = read(fd, buff, BUFFER_SIZE);
+	while ((rd))
 	{
 		buff[rd] = '\0';
 		tmp = *stock;
@@ -50,8 +51,15 @@ static int	readbuff(int fd, char *buff, char **stock)
 		free(tmp);
 		if (ft_strnchr(buff, '\n', BUFFER_SIZE))
 			break ;
+		rd = read(fd, buff, BUFFER_SIZE);
 	}
 	return (rd);
+}
+
+void	for_norme(char *stock)
+{
+	free(stock);
+	stock = NULL;
 }
 
 int	get_next_line(int fd, char **line)
@@ -75,8 +83,7 @@ int	get_next_line(int fd, char **line)
 	*line = ft_strndup(stock);
 	if (!ft_strnchr(stock, '\n', ft_strlen(stock)))
 	{
-		free(stock);
-		stock = NULL;
+		for_norme(stock);
 		return (0);
 	}
 	if (cut(&stock) == -1)
