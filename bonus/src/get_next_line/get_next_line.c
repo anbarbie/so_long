@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:02:51 by antbarbi          #+#    #+#             */
-/*   Updated: 2020/01/29 15:15:55 by antbarbi         ###   ########.fr       */
+/*   Updated: 2021/10/30 03:25:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int		cut(char **stock)
+static int	cut(char **stock)
 {
 	int		i;
 	char	*tmp;
@@ -28,31 +28,41 @@ static int		cut(char **stock)
 		}
 		i++;
 	}
-	if (!(*stock = ft_substr(tmp, i, ft_strlen(tmp))))
+	*stock = ft_substr(tmp, i, ft_strlen(tmp));
+	if (!(*stock))
 		return (-1);
 	free(tmp);
 	return (0);
 }
 
-static int		readbuff(int fd, char *buff, char **stock)
+static int	readbuff(int fd, char *buff, char **stock)
 {
 	char	*tmp;
 	int		rd;
-	
-	while ((rd = read(fd, buff, BUFFER_SIZE)))
+
+	rd = read(fd, buff, BUFFER_SIZE);
+	while ((rd))
 	{
 		buff[rd] = '\0';
 		tmp = *stock;
-		if (!(*stock = ft_strjoin(tmp, buff)))
+		*stock = ft_strjoin(tmp, buff);
+		if (!(*stock))
 			return (-1);
 		free(tmp);
 		if (ft_strnchr(buff, '\n', BUFFER_SIZE))
 			break ;
+		rd = read(fd, buff, BUFFER_SIZE);
 	}
 	return (rd);
 }
 
-int				get_next_line(int fd, char **line)
+void	for_norme(char *stock)
+{
+	free(stock);
+	stock = NULL;
+}
+
+int	get_next_line(int fd, char **line)
 {
 	char			buff[BUFFER_SIZE + 1];
 	static char		*stock;
@@ -62,17 +72,18 @@ int				get_next_line(int fd, char **line)
 		return (-1);
 	if (!stock)
 	{
-		if (!(stock = malloc(sizeof(char))))
+		stock = malloc(sizeof(char));
+		if (!(stock))
 			return (-1);
 		stock[0] = '\0';
 	}
-	if ((rd = readbuff(fd, buff, &stock)) == -1)
+	rd = readbuff(fd, buff, &stock);
+	if ((rd) == -1)
 		return (-1);
 	*line = ft_strndup(stock);
 	if (!ft_strnchr(stock, '\n', ft_strlen(stock)))
 	{
-		free(stock);
-		stock = NULL;
+		for_norme(stock);
 		return (0);
 	}
 	if (cut(&stock) == -1)

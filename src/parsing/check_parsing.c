@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 04:03:19 by user42            #+#    #+#             */
-/*   Updated: 2021/10/29 20:42:26 by user42           ###   ########.fr       */
+/*   Updated: 2021/10/30 03:33:44 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,31 +88,10 @@ void	check_map_content(t_data *data, int p)
 		exit_message(data, "Map : Content not solvable");
 }
 
-void	read_map(t_data *data)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (data->map[i])
-	{
-		j = 0;
-		while (data->map[i][j])
-		{
-			printf("%c", data->map[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
-	printf("sprite %d exit %d\n", data->cpt_sprite, data->cpt_sprite);
-}
-
 void	check_map(t_data *data)
 {
 	static int	p = 0;
 
-	read_map(data);
 	check_map_is_rec(data);
 	check_map_is_closed(data);
 	check_map_content(data, p);
