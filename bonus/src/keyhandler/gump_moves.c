@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gump_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 16:53:00 by user42            #+#    #+#             */
-/*   Updated: 2021/10/29 14:04:54 by antbarbi         ###   ########.fr       */
+/*   Updated: 2021/10/30 03:59:47 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	get_gump_pos(t_data *data, int x, int y)
 
 int	gump_obstacle(char c)
 {
-	if (c == '1' || c == 'C' || c == 'E')
+	if (c == '1' || c == 'C' || c == 'E'
+		|| c == 'G')
 		return (1);
 	else
 		return (0);
