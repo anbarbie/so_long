@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 02:47:52 by user42            #+#    #+#             */
-/*   Updated: 2021/10/29 14:13:20 by antbarbi         ###   ########.fr       */
+/*   Updated: 2021/11/01 03:19:58 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ void	init_xpm_bonus(t_data *data)
 	xpm_to_image(data, &data->seven, "./images/7.xpm");
 	xpm_to_image(data, &data->eight, "./images/8.xpm");
 	xpm_to_image(data, &data->nine, "./images/9.xpm");
-	xpm_to_image(data, &data->sprite2, "./images/block.xpm");
-	xpm_to_image(data, &data->ennemy, "./images/gumpa.xpm");
+	xpm_to_image(data, &data->sprite2, "./images/pr2.xpm");
+	xpm_to_image(data, &data->sprite3, "./images/pr3.xpm");
+	xpm_to_image(data, &data->ennemy, "./images/gump.xpm");
 }
 
 void	init_xpm(t_data *data)
@@ -48,7 +49,7 @@ void	init_xpm(t_data *data)
 	xpm_to_image(data, &data->player, "./images/mario.xpm");
 	xpm_to_image(data, &data->exit, "./images/exit.xpm");
 	xpm_to_image(data, &data->ground, "./images/ground.xpm");
-	xpm_to_image(data, &data->sprite, "./images/shroom.xpm");
+	xpm_to_image(data, &data->sprite, "./images/pr1.xpm");
 	init_xpm_bonus(data);
 }
 

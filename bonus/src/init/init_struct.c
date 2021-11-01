@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 17:22:31 by user42            #+#    #+#             */
-/*   Updated: 2021/10/29 14:14:28 by antbarbi         ###   ########.fr       */
+/*   Updated: 2021/11/01 03:16:54 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	init_struct_bonus(t_data *data)
 {
 	data->sprite2 = 0;
+	data->sprite3 = 0;
 	data->ennemy = 0;
 	data->zero = 0;
 	data->one = 0;

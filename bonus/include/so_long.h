@@ -61,6 +61,7 @@ typedef struct s_data
 	t_img	*ground;
 	t_img	*sprite;
 	t_img	*sprite2;
+	t_img	*sprite3;
 	t_img	*ennemy;
 	t_img	*zero;
 	t_img	*one;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 02:47:52 by user42            #+#    #+#             */
-/*   Updated: 2021/10/29 12:53:11 by antbarbi         ###   ########.fr       */
+/*   Updated: 2021/11/01 03:22:24 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	init_xpm(t_data *data)
 	xpm_to_image(data, &data->player, "./images/mario.xpm");
 	xpm_to_image(data, &data->exit, "./images/exit.xpm");
 	xpm_to_image(data, &data->ground, "./images/ground.xpm");
-	xpm_to_image(data, &data->sprite, "./images/shroom.xpm");
+	xpm_to_image(data, &data->sprite, "./images/pr1.xpm");
 }
 
 int	init(t_data *data)
