@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 02:47:52 by user42            #+#    #+#             */
-/*   Updated: 2021/11/01 03:19:58 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/01 03:37:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	init_xpm_bonus(t_data *data)
 	xpm_to_image(data, &data->nine, "./images/9.xpm");
 	xpm_to_image(data, &data->sprite2, "./images/pr2.xpm");
 	xpm_to_image(data, &data->sprite3, "./images/pr3.xpm");
-	xpm_to_image(data, &data->ennemy, "./images/gump.xpm");
+	xpm_to_image(data, &data->ennemy, "./images/gumpa.xpm");
 }
 
 void	init_xpm(t_data *data)

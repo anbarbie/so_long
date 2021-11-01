@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 21:40:22 by user42            #+#    #+#             */
-/*   Updated: 2021/11/01 03:14:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/01 03:44:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	render_coll(t_data *data, int x, int y)
 {
 	static int	i = 0;
+	static int	j = 0;
 	
 	if (i < 200)
 		xpm_pix_put(data->sprite, data, x, y);
@@ -24,11 +25,16 @@ void	render_coll(t_data *data, int x, int y)
 	}
 	else
 	{
-		if (i == 600)
-			i = 0;
 		xpm_pix_put(data->sprite3, data, x, y);
 	}
-	i++;
+	if (i == 600)
+		j = 1;
+	else if (i == -1)
+		j = 0;
+	if (j == 1)
+		i--;
+	else
+		i++;
 }
 
 void	render_map(t_data *data)

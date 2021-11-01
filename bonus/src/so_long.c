@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 02:20:15 by user42            #+#    #+#             */
-/*   Updated: 2021/10/31 03:10:50 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/01 03:37:58 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	free_bonus(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->eight);
 	mlx_destroy_image(data->mlx_ptr, data->nine);
 	mlx_destroy_image(data->mlx_ptr, data->sprite2);
+	mlx_destroy_image(data->mlx_ptr, data->sprite3);
 	mlx_destroy_image(data->mlx_ptr, data->ennemy);
 }
 
