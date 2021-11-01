@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gump_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 16:53:00 by user42            #+#    #+#             */
-/*   Updated: 2021/11/01 04:09:55 by antbarbi         ###   ########.fr       */
+/*   Updated: 2021/11/01 04:14:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	get_gump_pos(t_data *data, int x, int y)
 
 int	gump_stomp(char c)
 {
-	if (c == '0' || c == 'G')
+	if (c == '0' || c == 'P')
 		return (1);
 	return (0);
 }
