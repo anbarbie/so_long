@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gump_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 16:53:00 by user42            #+#    #+#             */
-/*   Updated: 2021/10/31 04:33:48 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/01 04:09:55 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ void	get_gump_pos(t_data *data, int x, int y)
 	}
 	if (i == data->cpt_gump)
 		i = 0;
+}
+
+int	gump_stomp(char c)
+{
+	if (c == '0' || c == 'G')
+		return (1);
+	return (0);
 }
 
 int	gump_obstacle(char c)
@@ -49,16 +56,14 @@ void	gump_patrol(t_data *data)
 		if ((gump_obstacle(data->map[data->pos->y_gump[i]]
 					[data->pos->x_gump[i] + 1])))
 			data->pos->b[i] = 0;
-		if ((data->map[data->pos->y_gump[i]]
-			[data->pos->x_gump[i] - 1] == '0' || data->map[data->pos->y_gump[i]]
-			[data->pos->x_gump[i] - 1] == 'P') && data->pos->b[i] == 0)
+		if ((gump_stomp(data->map[data->pos->y_gump[i]]
+					[data->pos->x_gump[i] - 1])) && data->pos->b[i] == 0)
 		{
 			data->map[data->pos->y_gump[i]][data->pos->x_gump[i] - 1] = 'G';
 			data->map[data->pos->y_gump[i]][data->pos->x_gump[i]] = '0';
 		}
-		if ((data->map[data->pos->y_gump[i]]
-			[data->pos->x_gump[i] + 1] == '0' || data->map[data->pos->y_gump[i]]
-			[data->pos->x_gump[i] + 1] == 'P') && data->pos->b[i] == 1)
+		if ((gump_stomp(data->map[data->pos->y_gump[i]]
+					[data->pos->x_gump[i] + 1])) && data->pos->b[i] == 1)
 		{
 			data->map[data->pos->y_gump[i]][data->pos->x_gump[i] + 1] = 'G';
 			data->map[data->pos->y_gump[i]][data->pos->x_gump[i]] = '0';

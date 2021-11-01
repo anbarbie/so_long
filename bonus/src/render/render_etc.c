@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_etc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 21:40:22 by user42            #+#    #+#             */
-/*   Updated: 2021/11/01 03:44:11 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/01 04:10:58 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	render_coll(t_data *data, int x, int y)
 {
 	static int	i = 0;
 	static int	j = 0;
-	
+
 	if (i < 200)
 		xpm_pix_put(data->sprite, data, x, y);
 	else if (i < 400)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   play_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 21:23:42 by user42            #+#    #+#             */
-/*   Updated: 2021/10/31 05:04:08 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/01 04:10:24 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,10 @@ void	play_down(t_data *data)
 				exit_success(data);
 			else
 			{
-			start_move(data);
-			data->y_player++;
-			end_move(data);
-			data->cpt_moves++;
+				start_move(data);
+				data->y_player++;
+				end_move(data);
+				data->cpt_moves++;
 			}
 		}
 	}
